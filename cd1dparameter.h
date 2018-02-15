@@ -1,7 +1,7 @@
-#ifndef PARAMETER_H
-#define PARAMETER_H
+#ifndef CD1DPARAMETER_H
+#define CD1DPARAMETER_H
 
-class parameter
+class cd1dparameter
 {
     double D; //diffusion coefficient
     double v; //velocity
@@ -14,8 +14,8 @@ class parameter
 
 public:
     double L; // length
-    parameter();
-    parameter(double Diff, double vel, unsigned int nSpec, unsigned int nVox, double Length, unsigned nTsteps = 100, double leftBc = 1);
+    cd1dparameter();
+    cd1dparameter(double Diff, double vel, unsigned int nSpec, unsigned int nVox, double Length, unsigned nTsteps = 100, double leftBc = 1);
     // Setter methods
     void setLength(double Length)
     {
@@ -63,4 +63,4 @@ public:
     void ParCout();
 };
 
-#endif // PARAMETER_H
+#endif // CD1DPARAMETER_H
