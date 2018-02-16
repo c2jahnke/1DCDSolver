@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-#include "parameter.h"
+#include "cd1dparameter.h"
 
 
 
@@ -15,7 +15,7 @@ Cd1DData::Cd1DData(std::vector<std::vector<double>> c,std::vector<std::vector<do
     conc = c;
     concOld = cOld;
 }
-void Cd1DData::dataInit(parameter * Par)
+void Cd1DData::dataInit(cd1dparameter * Par)
 {
     concOld.resize(Par->getNumSpec());
     for ( int k = 0 ; k < concOld.size(); k++)

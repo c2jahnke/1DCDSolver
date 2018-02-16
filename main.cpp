@@ -1,12 +1,12 @@
 #include <iostream>
 
-#include "parameter.h"
+#include "cd1dparameter.h"
 #include "cd1ddata.h"
 #include "cd1dsolver.h"
 
 int main()
 {
-    parameter Par = parameter(0.1 , 0,           1,                12,             1,              19,              1); //dependence on the discretization
+    cd1dparameter Par = cd1dparameter(0.1 , 0,           1,                12,             1,              19,              1); //dependence on the discretization
 
     // (double Diff, double vel, unsigned int nSpec, unsigned int nVox, double Length, unsigned nTsteps, double leftBc)
     Par.ParCout();

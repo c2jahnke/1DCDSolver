@@ -5,7 +5,7 @@
 #include <armadillo>
 #include <vector>
 #include "cd1ddata.h"
-#include "parameter.h"
+#include "cd1dparameter.h"
 
 
 CD1DSolver::CD1DSolver()
@@ -13,12 +13,12 @@ CD1DSolver::CD1DSolver()
 
 
 }
-CD1DSolver::CD1DSolver(parameter * param)
+CD1DSolver::CD1DSolver(cd1dparameter * param)
 {
        par = param;
 }
 
-CD1DSolver::CD1DSolver(parameter *param, Cd1DData * data)
+CD1DSolver::CD1DSolver(cd1dparameter *param, Cd1DData * data)
 {
        par = param;
        dat = data;

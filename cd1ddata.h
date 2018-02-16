@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <vector>
-#include "parameter.h"
+#include "cd1dparameter.h"
 
 class Cd1DData
 {
@@ -12,7 +12,7 @@ class Cd1DData
 public:
     Cd1DData();
     Cd1DData(std::vector<std::vector<double>> c,std::vector<std::vector<double>> cOld);
-    void dataInit(parameter * Par);
+    void dataInit(cd1dparameter * Par);
     void setConcOld(std::vector<std::vector<double>> concNew) // set whole structure
     {
     if(concNew.size() != concOld.size())
