@@ -13,18 +13,24 @@ CD1DSolver::CD1DSolver()
 
 
 }
-CD1DSolver::CD1DSolver(cd1dparameter * param)
+CD1DSolver::CD1DSolver(CD1DParameter * param)
 {
        par = param;
 }
 
-CD1DSolver::CD1DSolver(cd1dparameter *param, Cd1DData * data)
+CD1DSolver::CD1DSolver(CD1DParameter *param, CD1DData * data)
 {
        par = param;
        dat = data;
 }
 
-void CD1DSolver::solveProblem(bool outFlag)
+void CD1DSolver::solveStationary(std::vector<double> U){
+    //
+
+}
+
+
+void CD1DSolver::solveProblem(bool outFlag) // Instationary
 {
     for(int k=0; k != par->getNumTstep(); k++)
     {

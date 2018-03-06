@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-cd1dparameter::cd1dparameter()
+CD1DParameter::CD1DParameter()
 {
     D = 1;
     v = 0;
@@ -16,7 +16,7 @@ cd1dparameter::cd1dparameter()
     dt = 1/this->nT; // timestep
 }
 
-cd1dparameter::cd1dparameter(double Diff, double vel, unsigned int nSpec, unsigned int nVox, double Length, unsigned nTsteps, double leftBc)
+CD1DParameter::CD1DParameter(double Diff, double vel, unsigned int nSpec, unsigned int nVox, double Length, unsigned nTsteps, double leftBc)
 {
     D = Diff;
     v = vel;
@@ -29,7 +29,7 @@ cd1dparameter::cd1dparameter(double Diff, double vel, unsigned int nSpec, unsign
     dx = Length/nVox; // voxelsize
     dt = 10.0/nTsteps; // timestep
 }
-void cd1dparameter::ParCout()
+void CD1DParameter::ParCout()
 {
     std::cout << "Paramter class with:\n";
     std::cout << "Diffusion D = " << D << "\nVelocity v = " << v << "\nNumber of Species nS = " << nS << "\nNumber of Voxels nV = "<< nV;

@@ -4,12 +4,7 @@
 #include "cd1ddata.h"
 #include "cd1dparameter.h"
 #include <vector>
-/*class CD1CInterface
-{
-public:
-    CD1DInterface();
-};
-*/
+
 class Vector {
   friend class ConvDiffOperator;
 public:// public methods

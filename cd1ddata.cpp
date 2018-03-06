@@ -7,15 +7,15 @@
 
 
 
-Cd1DData::Cd1DData()
+CD1DData::CD1DData()
 {
 
 }
-Cd1DData::Cd1DData(std::vector<std::vector<double>> c,std::vector<std::vector<double>> cOld){
+CD1DData::CD1DData(std::vector<std::vector<double>> c,std::vector<std::vector<double>> cOld){
     conc = c;
     concOld = cOld;
 }
-void Cd1DData::dataInit(cd1dparameter * Par)
+void CD1DData::dataInit(CD1DParameter * Par)
 {
     concOld.resize(Par->getNumSpec());
     for ( int k = 0 ; k < concOld.size(); k++)
@@ -23,7 +23,7 @@ void Cd1DData::dataInit(cd1dparameter * Par)
     conc = concOld;
    }
 
-void Cd1DData::dataCout()
+void CD1DData::dataCout()
 {
     std::cout << "data.concOld = \n";
     for (int k = 0; k< concOld.size(); k++)

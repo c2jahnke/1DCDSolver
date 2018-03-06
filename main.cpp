@@ -6,12 +6,12 @@
 
 int main()
 {
-    cd1dparameter Par = cd1dparameter(0.1 , 0,           1,                12,             1,              19,              1); //dependence on the discretization
+    CD1DParameter Par = CD1DParameter(0.1 , 0,           1,                12,             1,              19,              1); //dependence on the discretization
 
     // (double Diff, double vel, unsigned int nSpec, unsigned int nVox, double Length, unsigned nTsteps, double leftBc)
     Par.ParCout();
 
-    Cd1DData data;
+    CD1DData data;
     data.dataInit(& Par);
     data.dataCout();
 

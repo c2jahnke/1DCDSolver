@@ -5,14 +5,14 @@
 #include <vector>
 #include "cd1dparameter.h"
 
-class Cd1DData
+class CD1DData
 {
     std::vector<std::vector<double>> conc;
     std::vector<std::vector<double>> concOld;
 public:
-    Cd1DData();
-    Cd1DData(std::vector<std::vector<double>> c,std::vector<std::vector<double>> cOld);
-    void dataInit(cd1dparameter * Par);
+    CD1DData();
+    CD1DData(std::vector<std::vector<double>> c,std::vector<std::vector<double>> cOld);
+    void dataInit(CD1DParameter * Par);
     void setConcOld(std::vector<std::vector<double>> concNew) // set whole structure
     {
     if(concNew.size() != concOld.size())
@@ -56,7 +56,7 @@ public:
 
     std::vector<double> getConcOld(int s)
     {
-        return concOld[s]; // does this work?
+        return concOld[s];
     }
 
     double getConc(int x, int s)

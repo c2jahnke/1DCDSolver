@@ -2,11 +2,7 @@
 #include <assert.h>
 #include <iostream>
 #include <cmath>
-/*CD1DInterface::CD1DInterface()
-{
 
-}
-*/
 //constructor for class Vector, copied from pymor example
 Vector::Vector(int dim, double value) : _data(dim, value), dim(dim) {}
 
