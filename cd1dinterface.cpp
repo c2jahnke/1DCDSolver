@@ -2,39 +2,39 @@
 #include <assert.h>
 #include <iostream>
 #include <cmath>
-/*CD1DInterface::CD1DInterface()
+#include "cd1dparameter.h" // for ConvDiffOperator
+#include "cd1ddata.h"
+#include "cd1dsolver.h"
+#include <vector>
+
+CD1DInterface::CD1DInterface()
 {
 
-}
-*/
-//constructor for class Vector, copied from pymor example
-Vector::Vector(int dim, double value) : _data(dim, value), dim(dim) {}
+    //no segmentation fault, deep copy
+    std::vector<double> leftBc;
+    leftBc.assign (1,1);
+    CD1DParameter pars = CD1DParameter(0.01 , 0,           1,                10,             1, leftBc ,              0);
+    CD1DData data;
+    data.dataInit(& pars);
+    solv = CD1DSolver(pars, data);
+    std::cout << "Interface solver created.\n";
 
-Vector::Vector(const Vector& other) : _data(other._data), dim(other.dim) {}
-
-void Vector::scal(double val) {
-  for (int i = 0; i < dim; i++) {
-    _data[i] *= val;
-  }
 }
 
-void Vector::axpy(double a, const Vector& x) {
-  assert(x.dim == dim);
-  for (int i = 0; i < dim; i++) {
-    _data[i] += a * x._data[i];
-  }
+CD1DInterface::CD1DInterface(double Diff, double vel, unsigned int nSpec, unsigned int nVox, double Length, std::vector<double> leftBc, unsigned int nTsteps)
+{
+    CD1DParameter pars = CD1DParameter(Diff,vel, nSpec, nVox, Length, leftBc, nTsteps);
+    CD1DData data;
+    data.dataInit(& pars);
+    solv = CD1DSolver(pars, data);
+}
+CD1DInterface::CD1DInterface(std::string XmlInputPath){
+
 }
 
-double Vector::dot(const Vector& other) const {
-  assert(other.dim == dim);
-  double result = 0;
-  for (int i = 0; i < dim; i++) {
-    result += _data[i] * other._data[i];
-  }
-  return result;
-}
+//void CD1DInterface::apply(const Vector& U, Vector& R){}
+void CD1DInterface::solveStationary(){
 
-double* Vector::data() {
-  return _data.data();
+
 }
 

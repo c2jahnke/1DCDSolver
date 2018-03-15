@@ -9,17 +9,24 @@
 class CD1DSolver
 {
     std::vector<double> time;
-    //unsigned nT; //number of timesteps
-    arma::mat A;
+    bool timeDep; // 0 stationary, 1 instationary
+    bool alloz; // 1 allocated memory, 0 external pointers used
+    std::vector<arma::mat> A;
     CD1DParameter * par;
     CD1DData * dat;
+
+
 public:
-    CD1DSolver();
+    CD1DSolver ();
+    ~CD1DSolver();
+    CD1DSolver(CD1DParameter param, CD1DData data);
+    // CD1DSolver(const CD1DSolver &solv2); // copy constructor
     CD1DSolver(CD1DParameter * param);
     CD1DSolver(CD1DParameter * param, CD1DData * data);
-    void solveProblem(bool outFlag);
+    void solveInstationary(bool outFlag);
     void solveTimestep(bool outFlag);
-    void solveStationary(std::vector<double> U);
+    void solveStationary(bool outFlag);
+    void assemble();
 
 };
 

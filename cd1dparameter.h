@@ -1,5 +1,6 @@
 #ifndef CD1DPARAMETER_H
 #define CD1DPARAMETER_H
+#include <vector>
 
 class CD1DParameter
 {
@@ -8,59 +9,61 @@ class CD1DParameter
     unsigned int nS; //number of species
     unsigned int nV; // number of Voxels
     unsigned int nT; //number of timesteps
-    double lBc; //left boundary condtion
+    std::vector<double> lBc; //left boundary condtion
     double dx;
     double dt;
 
 public:
     double L; // length
     CD1DParameter();
-    CD1DParameter(double Diff, double vel, unsigned int nSpec, unsigned int nVox, double Length, unsigned nTsteps = 100, double leftBc = 1);
+    //deep copy constructor
+    CD1DParameter(const CD1DParameter &param2);
+    CD1DParameter(double Diff, double vel, unsigned int nSpec, unsigned int nVox, double Length, std::vector<double> leftBc, unsigned nTsteps = 100);
     // Setter methods
     void setLength(double Length)
     {
         L = Length;// length
     }
     // Getter methods
-    double getLength()
+    double getLength() const
     {
         return L;
     }
-    double getDiff()
+    double getDiff() const
     {
         return D;
     }
-    double getVel()
+    double getVel() const
     {
         return v;
     }
-    unsigned int getNumSpec()
+    unsigned int getNumSpec() const
     {
         return nS;
     }
-    unsigned int getNumVox()
+    unsigned int getNumVox() const
     {
         return nV;
     }
-    unsigned int getNumTstep()
+    unsigned int getNumTstep() const
     {
         return nT;
     }
 
-    double getLeftBc()
+    std::vector<double> getLeftBc() const
     {
         return lBc;
     }
-    double getDx()
+    double getDx() const
     {
         return dx;
     }
-    double getDt()
+    double getDt() const
     {
         return dt;
     }
     // Output
-    void ParCout();
+    void ParCout() const;
 };
 
 #endif // CD1DPARAMETER_H
